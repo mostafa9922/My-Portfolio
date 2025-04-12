@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { NavBar } from "./Components/NavBar";
 import { NotFound } from "./Components/NotFound";
 import { Home } from "./Components/Home";
@@ -8,9 +8,11 @@ import { Services } from "./Components/Services";
 import { Footer } from "./Components/Footer";
 
 function App() {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   return (
     <div>
-      <NavBar />
+      <NavBar isHome={isHome} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contact-us' element={<ContactUs />} />

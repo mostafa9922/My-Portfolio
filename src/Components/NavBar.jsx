@@ -8,34 +8,26 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function NavList() {
+function NavList({ isHome }) {
   return (
-    <ul className='my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 text-gray-100 lg'>
+    <ul className={`my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ${isHome ? 'text-gray-100' : 'text-black'}`}>
       <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link
-          to='/'
-          className='flex items-center hover:text-blue-500 transition-colors'>
+        <Link to='/' className='flex items-center hover:text-blue-500 transition-colors'>
           Home
         </Link>
       </Typography>
       <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link
-          to='/services'
-          className='flex items-center hover:text-blue-500 transition-colors'>
+        <Link to='/services' className='flex items-center hover:text-blue-500 transition-colors'>
           Services
         </Link>
       </Typography>
       <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link
-          to='/about'
-          className='flex items-center hover:text-blue-500 transition-colors'>
+        <Link to='/about' className='flex items-center hover:text-blue-500 transition-colors'>
           About Us
         </Link>
       </Typography>
       <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link
-          to='/contact-us'
-          className='flex items-center hover:text-blue-500 transition-colors'>
+        <Link to='/contact-us' className='flex items-center hover:text-blue-500 transition-colors'>
           Contact Us
         </Link>
       </Typography>
@@ -43,7 +35,7 @@ function NavList() {
   );
 }
 
-export function NavBar() {
+export function NavBar({ isHome }) {
   const [openNav, setOpenNav] = React.useState(false);
 
   const handleWindowResize = () => {
@@ -56,7 +48,12 @@ export function NavBar() {
   }, []);
 
   return (
-    <Navbar className='fixed text-gray-100 top-0 left-0 w-full mx-auto max-w-screen-4xl px-6 py-3 rounded-none border-none bg-transparent z-50 backdrop-blur-none backdrop-filter-none shadow-none'>
+    <Navbar
+      className={
+        isHome
+          ? "fixed text-gray-100 top-0 left-0 w-full mx-auto max-w-screen-4xl px-6 py-3 rounded-none border-none bg-transparent z-50 backdrop-blur-none backdrop-filter-none shadow-none"
+          : "w-full mx-auto max-w-screen-4xl px-6 py-3 rounded-none border-none text-black"
+      }>
       <div className='flex items-center justify-between'>
         <Typography
           as={Link}
@@ -66,7 +63,7 @@ export function NavBar() {
           Mostafa Abd El-Rasheed
         </Typography>
         <div className='hidden lg:block'>
-          <NavList />
+          <NavList isHome={isHome} />
         </div>
         <IconButton
           variant='text'
@@ -81,7 +78,7 @@ export function NavBar() {
         </IconButton>
       </div>
       <Collapse open={openNav}>
-        <NavList />
+        <NavList isHome={isHome} /> {/* <-- Don't forget to pass it here too */}
       </Collapse>
     </Navbar>
   );
