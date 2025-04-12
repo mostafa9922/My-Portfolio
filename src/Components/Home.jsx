@@ -14,12 +14,12 @@ export const Home = () => {
         </video>
 
         <img
-          className='absolute right-6 bottom-20 h-40 w-40 rounded-full object-cover object-center md:h-80 md:w-80 lg:h-96 lg:w-96'
+          className='absolute right-6 bottom-28 h-40 w-40 rounded-full object-cover object-center md:h-80 md:w-80 lg:h-96 lg:w-96'
           src='/MyPhoto.jpg'
           alt='Personal Photo'
         />
 
-        <div className='relative z-10 flex items-start justify-start h-screen px-4 pt-44'>
+        <div className='relative z-10 flex items-start justify-start h-screen px-4 pt-60'>
           <TypeIt
             className='text-l sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-100'
             options={{
