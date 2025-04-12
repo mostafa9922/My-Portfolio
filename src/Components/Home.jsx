@@ -1,8 +1,9 @@
 import TypeIt from "typeit-react";
 
+
 export const Home = () => {
   return (
-    <div className='relative min-h-screen'>
+    <div className='relative min-h-screen scroll-smooth' id='first'>
       <div className='relative pt-20'>
         <video
           className='absolute top-0 left-0 w-full h-screen object-cover -z-10'
@@ -12,7 +13,13 @@ export const Home = () => {
           <source src='/HomeVideo.mp4' type='video/mp4' />
           Your browser does not support the video tag.
         </video>
-
+        <audio
+          className='absolute top-0 left-0 w-full h-screen object-cover -z-10'
+          autoPlay
+          loop>
+          <source src='/ElectricSound.mp3' type='audio/mpeg' />
+          Your browser does not support the audio tag.
+        </audio>
         <img
           className='absolute right-6 bottom-28 h-40 w-40 rounded-full object-cover object-center md:h-80 md:w-80 lg:h-96 lg:w-96'
           src='/MyPhoto.jpg'
@@ -42,6 +49,7 @@ export const Home = () => {
           />
         </div>
       </div>
+      
     </div>
   );
 };
