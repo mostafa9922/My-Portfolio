@@ -1,81 +1,73 @@
-import { Typography, Card, CardBody } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { FaLinkedin } from "react-icons/fa6";
-import { FaSquareInstagram } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa6";
-import { FaGithub } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaSquareInstagram,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa6";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const links = [
+    { to: "/about", label: "About Us" },
+    { to: "/services", label: "Services" },
+    { to: "/contact-us", label: "Contact Us" },
+  ];
+
+  const socials = [
+    {
+      to: "https://www.facebook.com/profile.php?id=100010375247419&mibextid=hIlR13",
+      icon: <FaFacebook />,
+    },
+    {
+      to: "https://www.instagram.com/11mostafa01?igsh=MWJpZGk2cGpwYms0Zw==",
+      icon: <FaSquareInstagram />,
+    },
+    {
+      to: "https://www.linkedin.com/in/mostafa-abd-elrasheed/",
+      icon: <FaLinkedin />,
+    },
+    { to: "https://github.com/mostafa9922", icon: <FaGithub /> },
+  ];
+
   return (
-    <footer className='w-full bg-white p-8'>
-      <div className='flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between'>
-        <Card shadow={false} className='bg-[#FAFAFA] px-10'>
-          <CardBody>
-            <img src='/FooterLogo.png' alt='logo' className='w-40' />
-          </CardBody>
-        </Card>
-        <ul className='flex flex-wrap items-center gap-y-2 gap-x-8'>
-          <li>
-            <Typography
-              as={Link}
-              to='/about'
-              color='blue-gray'
-              className='font-normal transition-colors hover:text-blue-500 focus:text-blue-500'>
-              About Us
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as={Link}
-              to='/services'
-              color='blue-gray'
-              className='font-normal transition-colors hover:text-blue-500 focus:text-blue-500'>
-              Services
-            </Typography>
-          </li>
-          <li>
-            <Typography
-              as={Link}
-              to='/contact-us'
-              href='#'
-              color='blue-gray'
-              className='font-normal transition-colors hover:text-blue-500 focus:text-blue-500'>
-              Contact Us
-            </Typography>
-          </li>
+    <footer className='bg-white dark:bg-gray-900 px-6 py-12 md:py-16'>
+      <div className='container mx-auto flex flex-col items-center gap-8 md:flex-row md:justify-between'>
+        <img src='/FooterLogo.png' alt='logo' className='h-16 w-auto md:h-20' />
+        <ul className='flex flex-wrap justify-center gap-8 md:gap-12'>
+          {links.map(({ to, label }) => (
+            <li key={to}>
+              <Typography
+                as={Link}
+                to={to}
+                color='blue-gray'
+                className='text-base font-semibold transition-colors hover:text-indigo-500 dark:text-gray-200 dark:hover:text-indigo-400 md:text-lg'>
+                {label}
+              </Typography>
+            </li>
+          ))}
         </ul>
       </div>
-      <hr className='my-8 border-blue-gray-50' />
-      <Typography color='blue-gray' className='text-center font-normal'>
-        &copy; {currentYear} Mostafa Abd El-Rasheed
-      </Typography>
-      <div className='social-Links flex gap-4 text-blue-gray-900 justify-center '>
+      <hr className='my-8 border-gray-200 dark:border-gray-700' />
+      <div className='flex flex-col items-center gap-6'>
         <Typography
-          as={Link}
-          to='https://www.facebook.com/profile.php?id=100010375247419&mibextid=hIlR13'
-          className='opacity-80 transition-opacity hover:opacity-100'>
-          <FaFacebook />
+          color='blue-gray'
+          className='text-base font-medium dark:text-gray-200 md:text-lg'>
+          © {currentYear} Mostafa Abd El-Rasheed
         </Typography>
-        <Typography
-          as={Link}
-          to='https://www.instagram.com/11mostafa01?igsh=MWJpZGk2cGpwYms0Zw=='
-          className='opacity-80 transition-opacity hover:opacity-100'>
-          <FaSquareInstagram />
-        </Typography>
-        <Typography
-          as={Link}
-          to='https://www.linkedin.com/in/mostafa-abd-elrasheed/'
-          className='opacity-80 transition-opacity hover:opacity-100'>
-          <FaLinkedin />
-        </Typography>
-        <Typography
-          as={Link}
-          to='https://github.com/mostafa9922'
-          className='opacity-80 transition-opacity hover:opacity-100'>
-          <FaGithub />
-        </Typography>
+        <div className='flex gap-6'>
+          {socials.map(({ to, icon }, index) => (
+            <Typography
+              key={index}
+              as={Link}
+              to={to}
+              className='text-2xl opacity-80 transition-opacity hover:opacity-100 text-gray-700 dark:text-gray-200 md:text-3xl'>
+              {icon}
+            </Typography>
+          ))}
+        </div>
       </div>
     </footer>
   );
