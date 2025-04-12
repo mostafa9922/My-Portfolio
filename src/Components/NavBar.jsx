@@ -8,29 +8,33 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function NavList({ isHome }) {
+function NavList({ isHome, onLinkClick }) {
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/services", label: "Services" },
+    { to: "/about", label: "About Us" },
+    { to: "/contact-us", label: "Contact Us" },
+  ];
+
   return (
-    <ul className={`my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ${isHome ? 'text-gray-100' : 'text-black'}`}>
-      <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link to='/' className='flex items-center hover:text-blue-500 transition-colors'>
-          Home
-        </Link>
-      </Typography>
-      <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link to='/services' className='flex items-center hover:text-blue-500 transition-colors'>
-          Services
-        </Link>
-      </Typography>
-      <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link to='/about' className='flex items-center hover:text-blue-500 transition-colors'>
-          About Us
-        </Link>
-      </Typography>
-      <Typography as='li' variant='small' className='p-1 font-medium'>
-        <Link to='/contact-us' className='flex items-center hover:text-blue-500 transition-colors'>
-          Contact Us
-        </Link>
-      </Typography>
+    <ul
+      className={`my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center p-5 lg:p-0 lg:gap-6 bg-white rounded-xl lg:bg-transparent ${
+        isHome ? "text-black lg:text-white" : "text-black"
+      }`}>
+      {links.map(({ to, label }) => (
+        <Typography
+          key={to}
+          as='li'
+          variant='medium'
+          className='p-1 font-medium'>
+          <Link
+            to={to}
+            onClick={onLinkClick} // 💡 Close nav on link click
+            className='flex items-center hover:text-blue-500 transition-colors'>
+            {label}
+          </Link>
+        </Typography>
+      ))}
     </ul>
   );
 }
@@ -47,11 +51,13 @@ export function NavBar({ isHome }) {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
+  const closeNav = () => setOpenNav(false);
+
   return (
     <Navbar
       className={
         isHome
-          ? "fixed text-gray-100 top-0 left-0 w-full mx-auto max-w-screen-4xl px-6 py-3 rounded-none border-none bg-transparent z-50 backdrop-blur-none backdrop-filter-none shadow-none"
+          ? "absolute text-gray-100 top-0 left-0 w-full mx-auto max-w-screen-4xl px-6 rounded-none border-none bg-transparent z-50 backdrop-blur-none backdrop-filter-none shadow-none"
           : "w-full mx-auto max-w-screen-4xl px-6 py-3 rounded-none border-none text-black"
       }>
       <div className='flex items-center justify-between'>
@@ -60,7 +66,11 @@ export function NavBar({ isHome }) {
           to='/'
           variant='h6'
           className='mr-4 cursor-pointer py-1.5'>
-          Mostafa Abd El-Rasheed
+          <img
+            className='h-16 w-24 rounded-lg object-cover object-center'
+            src='/HeaderLogo.jpg'
+            alt='Header Logo'
+          />
         </Typography>
         <div className='hidden lg:block'>
           <NavList isHome={isHome} />
@@ -78,7 +88,8 @@ export function NavBar({ isHome }) {
         </IconButton>
       </div>
       <Collapse open={openNav}>
-        <NavList isHome={isHome} /> {/* <-- Don't forget to pass it here too */}
+        <NavList isHome={isHome} onLinkClick={closeNav} />{" "}
+        {/* Pass the closer */}
       </Collapse>
     </Navbar>
   );

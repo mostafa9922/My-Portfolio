@@ -19,7 +19,7 @@ export const Home = () => {
           alt='Personal Photo'
         />
 
-        <div className='relative z-10 flex items-start justify-start h-screen px-4 pt-20'>
+        <div className='relative z-10 flex items-start justify-start h-screen px-4 pt-44'>
           <TypeIt
             className='text-l sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-100'
             options={{
