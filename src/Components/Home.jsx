@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export const Home = () => {
   return (
     <div className='relative min-h-screen scroll-smooth' id='first'>
-      {/* Hero Section - Unchanged */}
       <div className='relative pt-20 h-screen'>
         <video
           className='absolute top-0 left-0 w-full h-screen object-cover -z-10'
@@ -47,7 +46,6 @@ export const Home = () => {
           />
         </div>
       </div>
-
       <div className='about-us container mx-auto min-h-screen flex flex-col items-center justify-center py-8'>
         <Button className='cursor-default px-10 mb-6' size='lg'>
           about me
@@ -61,9 +59,7 @@ export const Home = () => {
               That curiosity led me down a path of discovery, one wire, one
               circuit, and one experiment at a time.
               <Link to='/about'>
-                <Button variant='text' className='text-blue-600 p-0'>
-                  Read More
-                </Button>
+                <Button>Read More</Button>
               </Link>
             </p>
           </div>
@@ -76,7 +72,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-
       <div className='skills container mx-auto min-h-screen flex flex-col items-center justify-center py-8'>
         <Button className='cursor-default px-10 mb-6' size='lg'>
           Skills
@@ -129,6 +124,71 @@ export const Home = () => {
               ))}
             </ul>
           </div>
+        </div>
+      </div>
+      <div className='Trainings container mx-auto min-h-screen flex flex-col items-center justify-center py-8 gap-5'>
+        <Button className='cursor-default px-10 mb-6' size='lg'>
+          Trainings
+        </Button>
+        <div className='w-full max-w-5xl px-4 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8'>
+          {[
+            {
+              title: "Electrical Engineering Intern",
+              company: "SolarTech Solutions",
+              description:
+                "Designed and tested solar panel circuits, improving energy efficiency by 10%. Collaborated with a team to integrate smart metering systems for real-time monitoring.",
+            },
+            {
+              title: "React Frontend Developer",
+              company: "Freelance Project",
+              description:
+                "Built a responsive portfolio website using React and Tailwind CSS, enhancing user experience with smooth animations and accessible design.",
+            },
+            {
+              title: "Arduino Project Lead",
+              company: "Cairo University",
+              description:
+                "Led a team to develop an autonomous vehicle prototype using Arduino, integrating sensors and motors for obstacle detection.",
+            },
+            {
+              title: "Smart Metering Research Assistant",
+              company: "Cairo University",
+              description:
+                "Researched IoT-based smart meters, developing prototypes to optimize energy consumption data for urban grids.",
+            },
+          ].map((exp, index) => (
+            <div
+              key={index}
+              className='bg-gray-900 p-6 rounded-xl hover:shadow-lg hover:scale-105 transition-all'>
+              <h2 className='text-white text-xl font-semibold mb-2'>
+                {exp.title}
+              </h2>
+              <p className='text-gray-300 text-sm mb-1'>{exp.company}</p>
+              <p className='text-gray-400 text-sm mb-4'>{exp.description}</p>
+              <Link
+                to='/work-experience'
+                aria-label={`Learn more about ${exp.title}`}>
+                <Button className='bg-blue-600 hover:bg-blue-700'>
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          ))}
+        </div>
+        <Button className='bg-blue-600 hover:bg-blue-700' size='lg'>
+          show more
+        </Button>
+      </div>
+      <div className='portfolio min-h-screen bg-[#1A1A1A] py-8'>
+        <div className='container mx-auto flex flex-col items-center justify-center  gap-5'>
+          <Button className='cursor-default px-10 mb-6 border-4' size='lg'>
+            Portfolio
+          </Button>
+          <img
+            src='/Coming soon.jpg'
+            alt=''
+            className='h-96 w-full object-cover object-center rounded-3xl'
+          />
         </div>
       </div>
     </div>
