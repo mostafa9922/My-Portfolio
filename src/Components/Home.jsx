@@ -90,7 +90,7 @@ export const Home = () => {
                 { src: "/CSS3.svg", name: "CSS3" },
                 { src: "/JS.svg", name: "JavaScript" },
                 { src: "/react.svg", name: "React" },
-                { src: "Tailwind.png", name: "Tailwind CSS" },
+                { src: "/Tailwind.png", name: "Tailwind CSS" },
                 { src: "/bootstrap.svg", name: "Bootstrap" },
                 { src: "/git.svg", name: "Git" },
                 { src: "/figma.svg", name: "Figma" },
