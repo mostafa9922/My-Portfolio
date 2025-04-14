@@ -90,7 +90,7 @@ export const Home = () => {
                 { src: "/CSS3.svg", name: "CSS3" },
                 { src: "/JS.svg", name: "JavaScript" },
                 { src: "/react.svg", name: "React" },
-                { src: "/public/Tailwind.png", name: "Tailwind CSS" },
+                { src: "Tailwind.png", name: "Tailwind CSS" },
                 { src: "/bootstrap.svg", name: "Bootstrap" },
                 { src: "/git.svg", name: "Git" },
                 { src: "/figma.svg", name: "Figma" },
@@ -112,7 +112,7 @@ export const Home = () => {
             <p className='text-lg font-semibold mb-4'>Learning:</p>
             <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6'>
               {[
-                { src: "/public/Node.png", name: "Node.js" },
+                { src: "/Node.png", name: "Node.js" },
                 { src: "/expreesjs.jpeg", name: "ExpressJS" },
                 { src: "/Mongo.png", name: "MongoDB" },
               ].map((skill) => (
