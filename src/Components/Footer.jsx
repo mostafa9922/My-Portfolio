@@ -11,7 +11,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const links = [
-    { to: "/about", label: "About Us" },
+    { to: "/about", label: "About Me" },
     { to: "/services", label: "Services" },
     { to: "/contact-us", label: "Contact Us" },
   ];

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
-    <div className='relative min-h-screen scroll-smooth' id='first'>
+    <div className='relative min-h-screen scroll-smooth'>
       <div className='relative pt-20 h-screen'>
         <video
           className='absolute top-0 left-0 w-full h-screen object-cover -z-10'

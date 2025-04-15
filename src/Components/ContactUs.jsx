@@ -105,14 +105,13 @@ export const ContactUs = () => {
           {/* Contact Info */}
           <div className='w-full lg:w-1/2'>
             <span className='block text-sm font-semibold text-indigo-600 mb-3'>
-              Contact Us
+              Contact Me
             </span>
             <h2 className='mb-4 text-2xl font-bold uppercase text-gray-900 dark:text-white md:text-3xl'>
-              Get in Touch with Us
+              Get in Touch with Me
             </h2>
             <p className='mb-6 text-base text-gray-600 dark:text-gray-300'>
-              We're here to assist you! Reach out with any questions or
-              inquiries.
+              I'm here to assist you! Reach out with any questions or inquiries.
             </p>
 
             {/* WhatsApp Info */}

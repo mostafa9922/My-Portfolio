@@ -12,8 +12,8 @@ function NavList({ isHome, onLinkClick }) {
   const links = [
     { to: "/", label: "Home" },
     { to: "/services", label: "Services" },
-    { to: "/about", label: "About Us" },
-    { to: "/contact-us", label: "Contact Us" },
+    { to: "/about", label: "About Me" },
+    { to: "/contact-us", label: "Contact Me" },
   ];
 
   return (
@@ -59,7 +59,8 @@ export function NavBar({ isHome }) {
         isHome
           ? "absolute text-gray-100 top-0 left-0 w-full mx-auto max-w-screen-4xl px-6 rounded-none border-none bg-transparent z-50 backdrop-blur-none backdrop-filter-none shadow-none"
           : "w-full mx-auto max-w-screen-4xl px-6 py-3 rounded-none border-none text-black"
-      }>
+      }
+      id='first'>
       <div className='flex items-center justify-between'>
         <Typography
           as={Link}
